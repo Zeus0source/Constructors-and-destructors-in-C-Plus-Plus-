@@ -30,3 +30,123 @@ Characteristics of Constructors:
 + Multiple constructors can be declared in a single class (it is even recommended - Rule Of Three, The Rule of Five).
 + In case of multiple constructors, the one with matching function signature will be called.
 
+<ins>Destructors</ins>:
+A destructor is a special member function of a class that is executed whenever an object of it's class goes out of scope or whenever the delete expression is applied to a pointer to the object of that class. A destructor will have exact same name as the class prefixed with a tilde (~) and it can neither return a value nor can it take any parameters. Destructor can be very useful for releasing resources before coming out of the program like closing files, releasing memories etc.
+
+# Implementation:
+The concepts of Constructor and Destructor are demonstrated by the following codes,
++ Constructor of Student info
++ Vehicle info using Constructor(outside the class)
++ volume using parrameterized constructor
++ copy constructor
++ Destructor using counters
+
+# Algorithms:
+
+Algorithm: Student Details using Constructor
+
+1. Start
+2. Define a class `Student` with private data members:
+    `rollno` (integer)
+    `name[50]` (character array)
+    `fee` (double)
+3. Define a constructor `Student()` that:
+   1. Displays "Enter student details".
+   2. Reads `rollno`.
+   3. Reads `name`.
+   4. Reads `fee`.
+4. Define a member function `display()` that:
+    Prints `rollno`, `name`, and `fee`.
+5. In `main()`:
+   1. Create an object `s1` of class `Student`.
+   2. Constructor automatically takes input for student details.
+   3. Call `s1.display()` to show entered details.
+6. End
+
+Algorithm: Vehicle Details using Constructor
+
+1. Start
+2. Define a class `Vehicles` with private data members:
+    `yr` (integer)
+    `brand[50]` (character array)
+     `type[50]` (character array)
+    `cost` (double)
+3. Define a constructor `Vehicles()` that:
+   1. Displays "Enter the Brand" and reads `brand`.
+   2. Displays "Enter the Type of Vehicle" and reads `type`.
+   3. Displays "Enter the year of manufacture" and reads `yr`.
+   4. Displays "Enter the cost of the Vehicle" and reads `cost`.
+4. Define a member function `display()` that:
+   Prints `brand`, `type`, and `cost` of the vehicle.
+5. In `main()`:
+   1. Create an object `v1` of class `Vehicles`.
+   2. Constructor is called automatically to input vehicle details.
+   3. Call `v1.display()` to display the details entered.
+6. End
+
+Algorithm: Find Volume using Parameterized Constructor
+
+1. Start
+2. Define a class `volume` with:
+    Private data members: `x`, `y`, `z` (integers), `vol` (double).
+     Public members:
+     Parameterized constructor `volume(int l, int b, int h)`
+
+        Calculates `vol = l * b * h`.
+       Function `display()`
+        Prints `vol`.
+3. In `main()` function:
+   1. Declare integers `a, b, c`.
+   2. Ask the user to *"Enter the dimensions"* and take input for `a, b, c`.
+   3. Create an object `v1` of class `volume` and pass `(a, b, c)` to the      constructor.
+   4. Call `v1.display()` to print the volume.
+4. End
+
+-
+
+Algorithm: Copy Constructor Example with Student Grade
+
+1. Start
+2. Define a class `Student` with:
+Private data members:
+      `Rollnum` (not used in this example).
+      `math_grade`, `cpp_grade`, `EDC_grade`, `DCLD_grade` (characters)
+     Public members:
+     1. **Parameterized Constructor `Student(char m, char c, char e, char d)
+         Assigns grades (`m`, `c`, `e`, `d`) to respective subjects.
+     3. Copy Constructor `Student(const Student &s)`
+         Copies all subject grades from an existing `Student` object `s`.
+     4. Function `display()`
+         Prints all the subject grades of the student.
+3. In `main()` function:
+   1. Create object `s1` using parameterized constructor with grades `'A', 'B', 'A', 'C'`.
+   2. Print original grades by calling `s1.display()`.
+   3. Create another object `s2` using copy constructor (`s2 = s1`).
+   4. Print copied grades by calling `s2.display()`.
+4. End
+
+
+Algorithm: Demonstrating Destructor with Static Counter
+
+1. Start
+2. Define a class `Destruct` with:
+   Static data member `count` (to keep track of number of active objects).
+     Constructor:
+     Increment `count` when a new object is created.
+     Print: *"Object created. Total objects: <count>"*.
+    Destructor:
+      Decrement `count` when an object is destroyed.
+       Print: "Object destroyed. Remaining objects: <count>".
+3. Initialize static variable `count = 0`.
+4. In `main()` function:
+    Create four objects: `a1, b1, c1, s1`.
+    Constructor is called for each, updating and displaying the object count.
+5. At the end of `main()`:
+    When program scope ends, destructors are called automatically.
+    Each destructor decreases the object count and displays the message.
+6. End
+
+# Conclusion:
+The above codes demonstrates the use of constructors and destructors in C++.
+
+  
